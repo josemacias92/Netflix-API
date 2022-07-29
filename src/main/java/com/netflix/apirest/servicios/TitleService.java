@@ -52,6 +52,17 @@ public class TitleService {
 		return titleRepository.findByDirector(idDirector, limit);
 	}
 	
+	public List<Title> searchTitleByName(String name, Pageable limit) {
+		return titleRepository.searchTitleByName(name, limit);
+	}
+
+	public List<Title> searchTitleByReleaseYear(String year, Pageable limit) {
+		return titleRepository.searchTitleByReleaseYear(year, limit);
+	}
+
+	public List<Title> searchTitleByDescription(String desc, Pageable limit) {
+		return titleRepository.searchTitleByReleaseYear(desc, limit);
+	}
 //	public List<Title> getMostExpensive(Pageable limit) {
 //		return titleRepository.findAllOrderByPriceDesc(limit);
 //	}
