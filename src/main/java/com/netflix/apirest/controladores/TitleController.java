@@ -71,7 +71,7 @@ public class TitleController {
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity deleteOne(@PathVariable int id){
+	public ResponseEntity<Title> deleteOne(@PathVariable int id){
 		
 		 titleService.deletebyId(id);
 		 return ResponseEntity.ok().build();

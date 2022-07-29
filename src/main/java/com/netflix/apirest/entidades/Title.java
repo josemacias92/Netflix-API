@@ -7,7 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
+
+import org.hibernate.validator.constraints.Range;
+
+import com.netflix.apirest.validation.MaxCurrentYear;
 
 @Entity
 public class Title {
@@ -15,12 +19,20 @@ public class Title {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
+
 	private String name;
 	private String date_added;
+
+	@MaxCurrentYear
 	private String release_year;
+
+	@Range(min = 0, max = 10)
 	private String rating;
+
 	private String duration;
 	private String description;
+
+	@Positive
 	private double user_rating;
 	
 	@ManyToMany
