@@ -15,4 +15,12 @@ public interface TitleRepository extends JpaRepository<Title, Integer>{
 	@Query("select t from Title t join t.category tc where tc.id = ?1 order by user_rating desc")
 	List<Title> findBestRatedByCategory(int category, Pageable pageable);
 	
+	@Query("select t from Title t where t.name like (?1%)")
+	List<Title> searchTitleByName(String name, Pageable pageable);
+
+	@Query("select t from Title t where t.release_year = ?1")
+	List<Title> searchTitleByReleaseYear(String year, Pageable pageable);
+
+	@Query("select t from Title t where t.description like (%?1%)")
+	List<Title> searchTitleByDescription(String description, Pageable pageable);
 }
