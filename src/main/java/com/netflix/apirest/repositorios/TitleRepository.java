@@ -12,8 +12,8 @@ public interface TitleRepository extends JpaRepository<Title, Integer>{
 	@Query("select t from Title t order by user_rating desc")
 	List<Title> findAllOrderByUserRatingDesc(Pageable pageable);
 	
-	@Query("select t from Title t join t.category tc where tc.id = ?1 order by user_rating desc")
-	List<Title> findBestRatedByCategory(int category, Pageable pageable);
+	@Query("select t from Title t join t.category c where c.id = ?1 order by user_rating desc")
+	List<Title> findBestRatedByCategory(int idCategory, Pageable pageable);
 	
 	@Query("select t from Title t where t.name like (?1%)")
 	List<Title> searchTitleByName(String name, Pageable pageable);
@@ -23,4 +23,13 @@ public interface TitleRepository extends JpaRepository<Title, Integer>{
 
 	@Query("select t from Title t where t.description like (%?1%)")
 	List<Title> searchTitleByDescription(String description, Pageable pageable);
+	
+	@Query("select t from Title t join t.category c where c.id = ?1")
+	List<Title> findByCategory(int idCategory, Pageable pageable);
+	
+	@Query("select t from Title t join t.actor a where a.id = ?1")
+	List<Title> findByActor(int idActor, Pageable pageable);
+	
+	@Query("select t from Title t join t.director d where d.id = ?1")
+	List<Title> findByDirector(int idDirector, Pageable pageable);
 }

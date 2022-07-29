@@ -36,8 +36,20 @@ public class TitleService {
 		return titleRepository.findAllOrderByUserRatingDesc(limit);
 	}
 	
-	public List<Title> getBestByCategory(int category, Pageable limit) {
-		return titleRepository.findBestRatedByCategory(category, limit);
+	public List<Title> getBestByCategory(int idCategory, Pageable limit) {
+		return titleRepository.findBestRatedByCategory(idCategory, limit);
+	}
+	
+	public List<Title> getByCategory(int idCategory, Pageable limit) {
+		return titleRepository.findByCategory(idCategory, limit);
+	}
+	
+	public List<Title> getByActor(int idActor, Pageable limit) {
+		return titleRepository.findByActor(idActor, limit);
+	}
+	
+	public List<Title> getByDirector(int idDirector, Pageable limit) {
+		return titleRepository.findByDirector(idDirector, limit);
 	}
 	
 	public List<Title> searchTitleByName(String name, Pageable limit) {
