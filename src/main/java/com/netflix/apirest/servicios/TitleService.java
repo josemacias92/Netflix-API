@@ -32,10 +32,14 @@ public class TitleService {
 		return titleRepository.save(title);
 	}
 
-//	public List<Title> getBest(Pageable limit) {
-//		return titleRepository.findAllOrderByRatingDesc(limit);
-//	}
-//
+	public List<Title> getBest(Pageable limit) {
+		return titleRepository.findAllOrderByUserRatingDesc(limit);
+	}
+	
+	public List<Title> getBestByCategory(int category, Pageable limit) {
+		return titleRepository.findBestRatedByCategory(category, limit);
+	}
+	
 //	public List<Title> getMostExpensive(Pageable limit) {
 //		return titleRepository.findAllOrderByPriceDesc(limit);
 //	}

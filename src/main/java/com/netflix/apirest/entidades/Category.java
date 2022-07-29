@@ -12,19 +12,12 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 public class Category {
 	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
 
 	@NotEmpty
 	private String name;
-	
-	@ManyToMany
-	Set<Title> titleId;
-	
-	
 	
 	public Category() {
 		super();
@@ -34,18 +27,6 @@ public class Category {
 		super();
 		this.name = name;
 	}
-
-	public Set<Title> getTitleId() {
-		return titleId;
-	}
-
-
-
-	public void setTitleId(Set<Title> titleId) {
-		this.titleId = titleId;
-	}
-
-
 
 	public Integer getId() {
 		return id;
@@ -62,6 +43,4 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
 }

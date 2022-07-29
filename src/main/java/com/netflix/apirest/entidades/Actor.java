@@ -15,50 +15,26 @@ public class Actor{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
 
 	@NotEmpty
     private String name;
-    
-	@ManyToMany
-	Set<Title> titleId;
 	
     public Actor() {
 		super();
 	}
     
-    
-
 	public Actor(@NotEmpty String name) {
 		super();
 		this.name = name;
 	}
 
-
-
-	public Set<Title> getTitleId() {
-		return titleId;
-	}
-
-
-
-	public void setTitleId(Set<Title> titleId) {
-		this.titleId = titleId;
-	}
-
-
-
 	public Integer getId() {
 		return id;
 	}
 
-
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-
 
 	public String getName(){
         return name;
@@ -67,13 +43,4 @@ public class Actor{
     public void setName(String name){
         this.name=name;
     }
-
-
-
-	@Override
-	public String toString() {
-		return "Actor [id=" + id + ", name=" + name + ", titleId=" + titleId + "]";
-	}
-    
-    
 }

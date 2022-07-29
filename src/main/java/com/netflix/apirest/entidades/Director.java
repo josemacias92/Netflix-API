@@ -16,13 +16,9 @@ public class Director{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-
 	@NotEmpty
     private String name;
-	
-	@ManyToMany
-	Set<Title> titleId;
-    
+
     public Director() {
 		super();
 	}
@@ -35,8 +31,6 @@ public class Director{
 	public Integer getId() {
 		return id;
 	}
-
-
 
 	public void setId(Integer id) {
 		this.id = id;

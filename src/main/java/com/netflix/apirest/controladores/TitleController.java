@@ -30,9 +30,7 @@ public class TitleController {
 			return  list.size() == 0 
 					? ResponseEntity.noContent().build() 
 					: ResponseEntity.ok().body(titleService.getAll());
-		
-	        
-		
+
 	}
 	
 	@GetMapping("/{id}")
@@ -47,6 +45,7 @@ public class TitleController {
 		
 		
 	}
+	
 	@DeleteMapping("/{id}")
 	public ResponseEntity deleteOne(@PathVariable int id){
 		
