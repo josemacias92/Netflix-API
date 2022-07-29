@@ -12,7 +12,15 @@ public interface TitleRepository extends JpaRepository<Title, Integer>{
 	@Query("select t from Title t order by user_rating desc")
 	List<Title> findAllOrderByUserRatingDesc(Pageable pageable);
 	
-	@Query("select t from Title t join t.category tc where tc.id = ?1 order by user_rating desc")
-	List<Title> findBestRatedByCategory(int category, Pageable pageable);
+	@Query("select t from Title t join t.category c where c.id = ?1 order by user_rating desc")
+	List<Title> findBestRatedByCategory(int idCategory, Pageable pageable);
 	
+	@Query("select t from Title t join t.category c where c.id = ?1")
+	List<Title> findByCategory(int idCategory, Pageable pageable);
+	
+	@Query("select t from Title t join t.actor a where a.id = ?1")
+	List<Title> findByActor(int idActor, Pageable pageable);
+	
+	@Query("select t from Title t join t.director d where d.id = ?1")
+	List<Title> findByDirector(int idDirector, Pageable pageable);
 }
