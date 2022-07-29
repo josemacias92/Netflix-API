@@ -35,7 +35,7 @@ public class TitleController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Title> showOne(@PathVariable int id) {
+	public ResponseEntity<Title> showOne(@PathVariable String id) {
 
 		Title item = titleService.getOne(id);
 
@@ -71,7 +71,7 @@ public class TitleController {
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Title> deleteOne(@PathVariable int id){
+	public ResponseEntity<Title> deleteOne(@PathVariable String id){
 		
 		 titleService.deletebyId(id);
 		 return ResponseEntity.ok().build();

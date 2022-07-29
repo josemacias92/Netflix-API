@@ -19,11 +19,11 @@ public class TitleService {
 		return titleRepository.findAll();
 	}
 
-	public Title getOne(int id) {
+	public Title getOne(String id) {
 		return titleRepository.findById(id).orElse(null);
 	}
 
-	public void deletebyId(int id) {
+	public void deletebyId(String id) {
 		titleRepository.deleteById(id);
 	}
 

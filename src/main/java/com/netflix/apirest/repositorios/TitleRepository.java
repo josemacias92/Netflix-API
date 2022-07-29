@@ -10,7 +10,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import com.netflix.apirest.entidades.Title;
 
 @RepositoryRestResource(collectionResourceRel = "title", path = "titles")
-public interface TitleRepository extends JpaRepository<Title, Integer>{
+public interface TitleRepository extends JpaRepository<Title, String>{
 	@Query("select t from Title t order by user_rating desc")
 	List<Title> findAllOrderByUserRatingDesc(Pageable pageable);
 	
